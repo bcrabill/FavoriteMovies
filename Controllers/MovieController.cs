@@ -10,12 +10,15 @@ namespace FavoriteMovies.Controllers
         {
             return View("Index");
         }
-
         [HttpGet("movie/{title}")]
-        public JsonResult FindMovie(string title, int year, int runtime, string rating, string genre, string director, string actors, string plot)
+        public JsonResult FindMovie(string title)
         {
-            var response = new{movie=title, release=year, runTime = runtime, movieRating = rating, genre = genre, movieDirector = director, actors = actors, moviePlot = plot};
+            
             return Json(response);
         }
+        public IActionResult AddMovie
+
+        public IActionResult RemoveMovie
+        
     }
 }
