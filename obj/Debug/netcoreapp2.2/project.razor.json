@@ -2961,13 +2961,8 @@
   "RootNamespace": "FavoriteMovies",
   "Documents": [
     {
-      "FilePath": "Views\\LogPartial.cshtml",
-      "TargetPath": "Views\\LogPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\RegPartial.cshtml",
-      "TargetPath": "Views\\RegPartial.cshtml",
+      "FilePath": "Views\\MovieDetails.cshtml",
+      "TargetPath": "Views\\MovieDetails.cshtml",
       "FileKind": "mvc"
     },
     {

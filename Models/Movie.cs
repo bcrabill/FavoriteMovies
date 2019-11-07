@@ -1,27 +1,37 @@
+using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+
 namespace FavoriteMovies.Models
 {
     public class Movie
     {
         [Key]
-        public int MovieId;
-        public string Title;
-        public string Actor;
+        public int MovieId {get;set;}
+        [Required]
+        [JsonProperty("Title")]
+        public string Title {get;set;}
 
-        public string Director;
+        [JsonProperty("Actors")]
+        public string Actor {get;set;}
 
-        public string Plot;
+        [JsonProperty("Director")]
+        public string Director {get;set;}
+        [JsonProperty("Plot")]
+        public string Plot {get;set;}
 
-        public string Released;
+        [JsonProperty("Released")]
+        public string Released {get;set;}
+        [JsonProperty("Rating")]
+        public int Rating {get;set;}
 
-        public int Rating;
-
-        public string Genre;
-
-        public string Poster;
+        [JsonProperty("Genre")]
+        public string Genre {get;set;}
+        [JsonProperty("Poster")]
+        public string Poster {get;set;}
 
         public Movie(string title, string actor, string director, string plot, string released, int rating, string genre, string poster, int movieId)
         {
-            MovieId = movieId;
             Title = title;
             Actor = actor;
             Director = director;
@@ -30,11 +40,12 @@ namespace FavoriteMovies.Models
             Rating = rating;
             Genre = genre;
             Poster = poster;
+            MovieId = movieId;
         }
 
         //Navigational Properties
         public User FavoritedBy { get; set;}
 
-        public List<Favorite> UserFavorites { get; set;}
+        public List<Favorite> Favorites { get; set;}
     }
 }

@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 namespace FavoriteMovies.Models
 {
     public class User
@@ -28,6 +29,6 @@ namespace FavoriteMovies.Models
 
         public List<Favorite> myFavorites {get; set;}
 
-        public List<Movie> addedMovies {get; set;}
+        public List<Movie> Favorite {get; set;}
     }
 }
