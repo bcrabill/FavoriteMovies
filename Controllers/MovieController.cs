@@ -31,15 +31,20 @@ namespace FavoriteMovies.Controllers
         }
 
        
-        [HttpGet("movie/RocketMan")]
-        [Route("movie/RocketMan")]
-        public async Task<ActionResult> GetTitle(string title)
+        [HttpGet("movie/{Title}")]
+        [Route("movie/{Title}")]
+        
+        public async Task<ActionResult> GetTitle(string Title)
         {
-           
-            List<Movie> movieResultsList = null;
+            var newTitle = Title.Replace(' ','+');
+            Console.WriteLine("the new title is "+ newTitle);
+            
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://www.omdbapi.com?apikey=8bc90e0b&t=Rocket+man");
+                string url = "http://www.omdbapi.com?";
+                string apiKey = "apikey=8bc90e0b&";
+                string titleInput = "t="+newTitle;
+                client.BaseAddress = new Uri(url+apiKey+titleInput);
                 var task = await client.GetAsync(client.BaseAddress);
                 var jsonString = await task.Content.ReadAsStringAsync();
                 Console.WriteLine(jsonString);
