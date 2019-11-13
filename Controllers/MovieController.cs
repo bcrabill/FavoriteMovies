@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using System.Linq;
 using System.Net.Http;
 using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 
 namespace FavoriteMovies.Controllers
@@ -29,44 +30,30 @@ namespace FavoriteMovies.Controllers
             return View("Index");
         }
 
-        [HttpGet("movie/RocketMan")]
+       
+        [HttpGet("movie/{Title}")]
+        [Route("movie/{Title}")]
         
-        public async static GetAsync(string title)
+        public async Task<ActionResult> GetTitle(string Title)
         {
-            Console.WriteLine("*************GetASYNC***********");
-           
-            List<Movie> movieResultsList = null;
+            var newTitle = Title.Replace(' ','+');
+            Console.WriteLine("the new title is "+ newTitle);
+            
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://www.omdbapi.com?apikey=8bc90e0b&t=Rocket+man");
-                HttpResponseMessage response = await client.GetAsync(client.BaseAddress);
-                Console.WriteLine(response);
-                
-                var result = await response.Content.ReadAsStringAsync();
-                Console.WriteLine("***************************");
-                Console.WriteLine(result);
-
-                deserialiseJSON(result);
-
-                //return View ("MovieDetails", result);
+                string url = "http://www.omdbapi.com?";
+                string apiKey = "apikey=8bc90e0b&";
+                string titleInput = "t="+newTitle;
+                client.BaseAddress = new Uri(url+apiKey+titleInput);
+                var task = await client.GetAsync(client.BaseAddress);
+                var jsonString = await task.Content.ReadAsStringAsync();
+                Console.WriteLine(jsonString);
+                var movieResult = JsonConvert.DeserializeObject<Movie>(jsonString);
+                return View("MovieDetails", movieResult);
             }           
         }
 
-        private static void deserialiseJSON(string result)
-        {
-            try
-            {
-                Movie movieResult = JsonConvert.DeserializeObject<Movie>(result);
-                Console.WriteLine("The actors are " + movieResult.Actor);
-                Console.WriteLine("The director is " + movieResult.Director);
-                Console.WriteLine("The plot is " + movieResult.Plot);      
-               
-            }
-            catch
-            {
-                Console.WriteLine("There is a problem");
-            }
-        }
+       
 
     }
 }
