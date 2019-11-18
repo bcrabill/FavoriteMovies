@@ -1,0 +1,21 @@
+@model FavoriteMovies.Models.Movie
+
+<html>
+    
+    <head>
+        <link rel="stylesheet" href="site.css" type ="text/css">
+        <meta charset='utf-8'>
+        <title>Movie Details</title>
+    </head>
+    <body>
+        <div class = movieDetails>
+        <h1>Welcome to the Favorite Movie collector Details Page</h1>
+        
+        <h2>Title is @Model.Title</h2>
+        <h2>Starring @Model.Actor</h2>
+        <img src = @Model.Poster alt ="movie poster">
+        <p>Is this the correct movie?</p>
+        </div>
+
+
+    </body>

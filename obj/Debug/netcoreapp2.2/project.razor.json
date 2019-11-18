@@ -2966,6 +2966,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views\\MovieDetails.cshtml",
+      "TargetPath": "Views\\MovieDetails.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\LogPartial.cshtml",
+      "TargetPath": "Views\\LogPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\Movie\\Index.cshtml",
       "TargetPath": "Views\\Movie\\Index.cshtml",
       "FileKind": "mvc"
