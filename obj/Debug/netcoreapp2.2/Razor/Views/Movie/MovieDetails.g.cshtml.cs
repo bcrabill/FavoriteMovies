@@ -13,7 +13,18 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
+#line 1 "C:\Users\Bryan\Desktop\Coding_Dojo\C Sharp\Projects\FavoriteMovies\Views\_ViewImports.cshtml"
+using FavoriteMovies;
+
+#line default
+#line hidden
+#line 2 "C:\Users\Bryan\Desktop\Coding_Dojo\C Sharp\Projects\FavoriteMovies\Views\_ViewImports.cshtml"
+using FavoriteMovies.Models;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2699dc613d1f4474ca5d29949ec5419a06242585", @"/Views/Movie/MovieDetails.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0ab2990090e9517127530ae4cc83f6412a360b80", @"/Views/_ViewImports.cshtml")]
     public class Views_Movie_MovieDetails : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<FavoriteMovies.Models.Movie>
     {
         #line hidden
@@ -43,7 +54,7 @@ namespace AspNetCore
             WriteLiteral("\r\n<html>\r\n    \r\n    ");
             EndContext();
             BeginContext(56, 155, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2699dc613d1f4474ca5d29949ec5419a062425852974", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2699dc613d1f4474ca5d29949ec5419a062425853461", async() => {
                 BeginContext(62, 142, true);
                 WriteLiteral("\r\n        <link rel=\"stylesheet\" href=\"site.css\" type =\"text/css\">\r\n        <meta charset=\'utf-8\'>\r\n        <title>Movie Details</title>\r\n    ");
                 EndContext();
@@ -63,7 +74,7 @@ namespace AspNetCore
             WriteLiteral("\r\n    ");
             EndContext();
             BeginContext(217, 334, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2699dc613d1f4474ca5d29949ec5419a062425854314", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2699dc613d1f4474ca5d29949ec5419a062425854801", async() => {
                 BeginContext(223, 140, true);
                 WriteLiteral("\r\n        <div class = movieDetails>\r\n        <h1>Welcome to the Favorite Movie collector Details Page</h1>\r\n        \r\n        <h2>Title is ");
                 EndContext();

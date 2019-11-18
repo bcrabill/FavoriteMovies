@@ -29,6 +29,9 @@ namespace FavoriteMovies
             });
 
             services.AddMvc();
+            services.AddSession(opts => {
+                opts.Cookie.IsEssential = true;
+            });
             
         }
 
@@ -41,6 +44,7 @@ namespace FavoriteMovies
             }
 
            app.UseMvc();
+           app.UseSession();
         }
     }
 }

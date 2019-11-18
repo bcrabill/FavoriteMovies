@@ -1,6 +1,49 @@
+
 .movieDetails {
     margin: auto;
     width: 50%;
     border: 5px solid gray;
     padding: 10px;
+}
+.indexSearch
+{
+    margin: auto;
+    width: 75%;
+    border: 5px solid black;
+    padding: 10px;
+}
+.header
+{
+    text-align: center;
+    background: #00004e;
+    color: white;
+    vertical-align: center;
+    
+}
+.main_body
+{
+    width: 70%;
+    margin: auto;
+    padding: 10px;
+    border: 5px solid black;
+    display: inline-block;
+}
+.partial_section{
+    width: 30%;
+    margin: auto;
+    border: 5px solid black;
+    display: inline-block;
+    height: 100%;
+}
+
+.log_partial
+{
+   
+    margin: auto;
+    border: 5px solid black;
+    display: inline-block;
+    height: 100%;
+}
+body{
+    background-color:green;
 }
