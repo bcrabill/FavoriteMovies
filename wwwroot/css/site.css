@@ -22,11 +22,13 @@
 }
 .main_body
 {
-    width: 70%;
+    text-align: top;
+    width: 60%;
     margin: auto;
     padding: 10px;
-    border: 5px solid black;
+    
     display: inline-block;
+    background: rgb(184, 178, 178);
 }
 .partial_section{
     width: 30%;
@@ -38,12 +40,11 @@
 
 .log_partial
 {
-   
     margin: auto;
-    border: 5px solid black;
     display: inline-block;
-    height: 100%;
+    height: 50%;
 }
-body{
-    background-color:green;
+body
+{
+    background: rgb(184, 178, 178);
 }

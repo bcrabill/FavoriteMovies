@@ -42,7 +42,7 @@ namespace FavoriteMovies
             {
                 app.UseDeveloperExceptionPage();
             }
-
+           app.UseStaticFiles();
            app.UseMvc();
            app.UseSession();
         }

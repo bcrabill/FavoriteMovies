@@ -29,3 +29,5 @@ C:\Users\Bryan\Desktop\Coding_Dojo\C Sharp\Projects\FavoriteMovies\obj\Debug\net
 C:\Users\Bryan\Desktop\Coding_Dojo\C Sharp\Projects\FavoriteMovies\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.cs
 C:\Users\Bryan\Desktop\Coding_Dojo\C Sharp\Projects\FavoriteMovies\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
 C:\Users\Bryan\Desktop\Coding_Dojo\C Sharp\Projects\FavoriteMovies\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+C:\Users\Bryan\Desktop\Coding_Dojo\C Sharp\Projects\FavoriteMovies\obj\Debug\netcoreapp2.2\Razor\Views\LogPartial.g.cshtml.cs
+C:\Users\Bryan\Desktop\Coding_Dojo\C Sharp\Projects\FavoriteMovies\obj\Debug\netcoreapp2.2\Razor\Views\MovieDetails.g.cshtml.cs
