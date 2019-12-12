@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FavoriteMovies.Migrations
 {
     [DbContext(typeof(HomeContext))]
-    [Migration("20191107194330_ModelUpdate")]
-    partial class ModelUpdate
+    [Migration("20191203183424_SchemaCorrection")]
+    partial class SchemaCorrection
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -97,7 +97,7 @@ namespace FavoriteMovies.Migrations
                         .HasForeignKey("MovieId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("FavoriteMovies.Models.User", "FavoritedBy")
+                    b.HasOne("FavoriteMovies.Models.User", "UserFavorited")
                         .WithMany("myFavorites")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -106,7 +106,7 @@ namespace FavoriteMovies.Migrations
             modelBuilder.Entity("FavoriteMovies.Models.Movie", b =>
                 {
                     b.HasOne("FavoriteMovies.Models.User", "FavoritedBy")
-                        .WithMany("Favorite")
+                        .WithMany("myFavoriteMovies")
                         .HasForeignKey("FavoritedByUserId");
                 });
 #pragma warning restore 612, 618

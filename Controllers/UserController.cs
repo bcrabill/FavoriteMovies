@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using FavoriteMovies.Models;
 using Microsoft.AspNetCore.Http;
@@ -12,18 +13,24 @@ namespace FavoriteMovies.Controllers
         { 
             dbContext = context;
         }
+        
         [HttpPost("Register")]
         public IActionResult Register(User newUser)
         {
             if(ModelState.IsValid)
             {
-                HttpContext.Session.SetInt32("UserId", newUser.UserId);
+                Console.WriteLine("*******************Reg user model is valid");
                 dbContext.Users.Add(newUser);
                 dbContext.SaveChanges();
-                return View("Index");
+                HttpContext.Session.SetInt32("UserId", newUser.UserId);
+                HttpContext.Session.SetString("Name", newUser.FirstName);
+                ViewBag.UserId = HttpContext.Session.GetInt32("UserId");
+                ViewBag.Name = HttpContext.Session.GetString("Name");
+                return RedirectToAction("Dashboard", newUser);
             }
             else
             {
+                Console.WriteLine("*******************Reg user model is not valid");
                 return View("Index");            
             }
         }
@@ -32,18 +39,22 @@ namespace FavoriteMovies.Controllers
         {
             if(ModelState.IsValid)
             {
-                var userInDb = dbContext.Users.FirstOrDefault( u=> u.Email == logUser.LoginEmail);
-                HttpContext.Session.SetInt32("UserId", userInDb.UserId);
-
+                var userInDb = dbContext.Users.FirstOrDefault(u=> u.Email == logUser.LoginEmail);
+                Console.WriteLine("$$$$$$$$$$$$$$$$$$$$user in db is supposed to be here" + userInDb);
                 if(userInDb == null)
                 {
+                    Console.WriteLine("@@@@@@@@@Login userin DB is null@@@@@@@@@@@@@");
                     ModelState.AddModelError("Email", "Invalid Email/Password");
-                    return View("Index");
+                    return View("Index", "Movie");
                 }
                 else
                 {
-                    ViewBag.UserId = userInDb.UserId;
-                    return View("Index");
+                    Console.WriteLine("@@@@@@@@@Login userin DB is not null@@@@@@@@@@@@@");
+                    HttpContext.Session.SetInt32("UserId", userInDb.UserId);
+                    HttpContext.Session.SetString("Name", userInDb.FirstName);
+                    ViewBag.UserId = HttpContext.Session.GetInt32("UserId");
+                    ViewBag.Name = HttpContext.Session.GetString("Name");
+                    return RedirectToAction("Dashboard", userInDb);
                 }
             }
             else

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+@model List<Movie>
+
+<html>
+    <head>
+        <title>Favorite Movies</title>
+    </head>
+    <body>
+        <div class = "main_body" >
+            <div class = "header"   >
+            <h1> Welcome to the Favorite Movie Collector</h1></div>
+            @if(ViewBag.Name != null)
+            {
+            <h2> @ViewBag.Name </h2>
+            }
+            else
+            {
+                <h2>Users must sign in to save movies to their collection.</h2>
+                <h2>Guests may still use the API to browse movies.</h2>
+            }
+            <div id = "indexSearch" style = "display:inline-block;">
+            <form action="movie" controller="Movie" method="post">
+                <label for="Title"></label>
+                <input name="Title" placeholder = "type your movie title here"><br>
+                <input type="submit" value = "Search by Title">
+        </form>
+        <table style="width: 50%; border: 2px solid black;">
+                <tr>
+                    <th>Poster</th>
+                    <th>Title</th>
+                </tr>
+            
+            @foreach(var m in @Model)
+            {   
+                <tr>
+                    <td><img src="@m.Poster" alt = "movie poster"></td>
+                    <td>@m.Title</td>
+                </tr>
+                
+            }
+        </table>
+        </div>
+    </body>
+</html>

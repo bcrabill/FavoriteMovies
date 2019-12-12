@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FavoriteMovies.Migrations
 {
-    public partial class ModelUpdate : Migration
+    public partial class SchemaCorrection : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

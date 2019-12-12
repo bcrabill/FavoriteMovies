@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 namespace FavoriteMovies.Models
 {
     public class Favorite
@@ -8,7 +9,7 @@ namespace FavoriteMovies.Models
         public int FavoriteId {get;set;}
 
         //Navigational Properties
-        public User FavoritedBy {get; set; }
+        public User UserFavorited {get; set; }
 
         public Movie Favorited {get; set;}
     }

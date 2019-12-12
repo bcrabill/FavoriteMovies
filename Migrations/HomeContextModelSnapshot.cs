@@ -95,7 +95,7 @@ namespace FavoriteMovies.Migrations
                         .HasForeignKey("MovieId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("FavoriteMovies.Models.User", "FavoritedBy")
+                    b.HasOne("FavoriteMovies.Models.User", "UserFavorited")
                         .WithMany("myFavorites")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -104,7 +104,7 @@ namespace FavoriteMovies.Migrations
             modelBuilder.Entity("FavoriteMovies.Models.Movie", b =>
                 {
                     b.HasOne("FavoriteMovies.Models.User", "FavoritedBy")
-                        .WithMany("Favorite")
+                        .WithMany("myFavoriteMovies")
                         .HasForeignKey("FavoritedByUserId");
                 });
 #pragma warning restore 612, 618

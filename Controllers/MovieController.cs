@@ -9,6 +9,8 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Session;
+
 
 
 namespace FavoriteMovies.Controllers
@@ -26,14 +28,32 @@ namespace FavoriteMovies.Controllers
         [Route("")]
         public IActionResult Index()
         {
-            //List<Movie> allFavorites = dbContext.Movies.Include( u => u.FavoritedBy).ToList();
-            Console.WriteLine("**************************");
+            if(HttpContext.Session.GetInt32("UserId")==null)
+            {
+            return View("Index");
+            }
+            else
+            {
+            return Redirect("/Dashboard");
+            }
+        }
+        
+        public IActionResult Dashboard(User activeUser)
+        {
+        if(HttpContext.Session.GetInt32("UserId") == null)
+        {
+            Console.WriteLine("#####Dashboard UserId is Null########");
             return View("Index");
         }
+        else
+        {
+            User userInDb = dbContext.Users.FirstOrDefault( u => u.UserId == HttpContext.Session.GetInt32("UserId"));
+            Console.WriteLine("#####Dashboard UserId is NOT Null########");
+            List<Movie> allFavorites = dbContext.Movies.Include( u => u.FavoritedBy == activeUser).ToList();
+            return View("UserDashboard", allFavorites);
+        }
+        }
 
-       
-       
-        
         public async Task<Movie> APIProcessor(string newTitle)
         {
             using (var client = new HttpClient())
@@ -50,7 +70,7 @@ namespace FavoriteMovies.Controllers
                 return movieResult;
             }           
         }
-        /*public IActionResult AddMovie(Movie newMovie)
+        public IActionResult AddMovie(Movie newMovie)
         {
             User userInDb = dbContext.Users.FirstOrDefault( u => u.UserId == HttpContext.Session.GetInt32("UserId"));
             if(HttpContext.Session.GetInt32("UserId") == null)
@@ -61,18 +81,22 @@ namespace FavoriteMovies.Controllers
             {
                 if(ModelState.IsValid)
                 {
-                    newMovie.FavoritedBy = userInDb;
+                    Favorite newFavorite = new Favorite();
+                    newFavorite.UserFavorited = userInDb;
+                    newFavorite.MovieId = newMovie.MovieId;
+                    dbContext.Favorites.Add(newFavorite);
                     dbContext.Movies.Add(newMovie);
                     dbContext.SaveChanges();
-                    return RedirectToAction("Index");
+                    Console.WriteLine("the movie ", newMovie.Title + " was created");
+                    return View("UserDashboard");
                 }
                 else
                 {
-                    return View("ShowMovie");
+                    return View("Index");
                 }
             }
         }
-        */
+        
         [HttpPost]
         [Route("movie")]
         public IActionResult TitleSearch(string Title)

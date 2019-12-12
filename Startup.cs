@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using FavoriteMovies.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Session;
 
 namespace FavoriteMovies
 {
@@ -43,8 +44,9 @@ namespace FavoriteMovies
                 app.UseDeveloperExceptionPage();
             }
            app.UseStaticFiles();
-           app.UseMvc();
            app.UseSession();
+           app.UseMvc();
+           
         }
     }
 }

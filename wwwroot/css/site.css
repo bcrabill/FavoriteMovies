@@ -18,6 +18,7 @@
     background: #00004e;
     color: white;
     vertical-align: center;
+    width: 100%;
     
 }
 .main_body
@@ -35,7 +36,7 @@
     margin: auto;
     border: 5px solid black;
     display: inline-block;
-    height: 100%;
+    height: 50%;
 }
 
 .log_partial
@@ -47,4 +48,10 @@
 body
 {
     background: rgb(184, 178, 178);
+}
+img.movie_Details
+{
+    max-height: 450 px;
+    border: 3px solid black;
+    border-radius: 8 px;
 }

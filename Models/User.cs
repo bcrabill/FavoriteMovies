@@ -29,6 +29,6 @@ namespace FavoriteMovies.Models
 
         public List<Favorite> myFavorites {get; set;}
 
-        public List<Movie> Favorite {get; set;}
+        public List<Movie> myFavoriteMovies {get; set;}
     }
 }
